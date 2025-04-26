@@ -14,21 +14,38 @@ const MainContent = () => {
   const itemsPerPage = 12;
 
   useEffect(() => {
-    let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`;
+    let url = `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${
+      (currentPage - 1) * itemsPerPage
+    }`;
 
     if (keyword) {
-        url += `&q=${keyword}`;
+      url += `&q=${keyword}`;
     }
 
-    axios.get(url)
-        .then((response) => {
-            setProducts(response.data.products);
-            console.log('Productos: ', response.data.products);
-        })
-        .catch((error) => {
-            console.error('Error fetching products:', error);
-        })
-  }, [currentPage, keyword])
+    axios
+      .get(url)
+      .then((response) => {
+        setProducts(response.data.products);
+        console.log("Productos: ", response.data.products);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  }, [currentPage, keyword]);
+
+  const getFilteredProducts = () => {
+    let filteredProducts = products;
+
+    if (selectedCategory) {
+        filteredProducts = filteredProducts.filter(
+            (product) => product.category === selectedCategory
+        );
+
+        console.log(`Filtered products by ${selectedCategory}: `, filteredProducts);
+    }
+  }
+
+  getFilteredProducts();
 
   return (
     <section className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
@@ -43,29 +60,32 @@ const MainContent = () => {
             </button>
 
             {dropdownOpen && (
-                <div className="absolute bg-white border border-purple-300 rounded mt-2 w-full sm:w-40">
-                    <button 
-                        onClick={() => setFilter('cheap')} 
-                        className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100">
-                        Cheap
-                    </button>
-                    <button 
-                        onClick={() => setFilter('expensive')} 
-                        className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100">
-                        Expensive
-                    </button>
-                    <button 
-                        onClick={() => setFilter('popular')} 
-                        className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100">
-                        Popular
-                    </button>
-                </div>
+              <div className="absolute bg-white border border-purple-300 rounded mt-2 w-full sm:w-40">
+                <button
+                  onClick={() => setFilter("cheap")}
+                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100"
+                >
+                  Cheap
+                </button>
+                <button
+                  onClick={() => setFilter("expensive")}
+                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100"
+                >
+                  Expensive
+                </button>
+                <button
+                  onClick={() => setFilter("popular")}
+                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100"
+                >
+                  Popular
+                </button>
+              </div>
             )}
           </div>
         </div>
 
         <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
-            {/* BookCard */}
+          {/* BookCard */}
         </div>
       </div>
     </section>
