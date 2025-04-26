@@ -59,6 +59,22 @@ const Sidebar = () => {
     setMaxPrice(value ? parseFloat(value) : undefined);
   };
 
+  const handleRadioChangeCategories = (category: string) => {
+    setSelectedCategory(category);
+  }
+
+  const handleKeywordClick = (keyword: string) => {
+    setKeyword(keyword);
+  }
+
+  const handleResetFilters = () => {
+    setSearchQuery("");
+    setSelectedCategory("");
+    setMinPrice(undefined);
+    setMaxPrice(undefined);
+    setKeyword("");
+  }
+
   return (
     <div className="w-64 p-5 h-screen">
       <h1 className="text-2xl font-bold mb-10 mt-4">React Store</h1>
@@ -101,7 +117,9 @@ const Sidebar = () => {
                 type="radio"
                 name="category"
                 value={category}
+                onChange={() => handleRadioChangeCategories(category)}
                 className="mr-2 w-[16px] h-[16px]"
+                checked={selectedCategory === category}
               />
               {category.toLowerCase()}
             </label>
@@ -115,6 +133,7 @@ const Sidebar = () => {
             {keywords.map((keyword, index) => (
               <button
                 key={index}
+                onClick={() => handleKeywordClick(keyword)}
                 className="block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-purple-200 hover:text-purple-800"
               >
                 {keyword.toLowerCase()}
@@ -123,7 +142,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <button className="w-full mb-[4rem] py-2 bg-purple-800 text-purple-200 rounded mt-5">
+        <button onClick={handleResetFilters} className="w-full mb-[4rem] py-2 bg-purple-800 text-purple-200 rounded mt-5">
           Reset filters
         </button>
       </section>
