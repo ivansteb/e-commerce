@@ -20,8 +20,8 @@ const MainContent = () => {
     }`;
 
     if (keyword) {
-      url += `&q=${keyword}`;
-    }
+      url = `https://dummyjson.com/products/search?q=${keyword}`;
+    };
 
     axios
       .get(url)
