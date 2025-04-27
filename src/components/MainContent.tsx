@@ -1,7 +1,7 @@
-import { Tally3 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
 import axios from "axios";
+import { Tally3 } from "lucide-react";
 import ProductCard from "./ProductCard";
 
 const MainContent = () => {
@@ -62,7 +62,7 @@ const MainContent = () => {
 
     switch (filter) {
       case "cheap":
-        return filteredProducts.sort((a, b) => b.price - a.price);
+        return filteredProducts.sort((a, b) => a.price - b.price);
       case "expensive":
         return filteredProducts.sort((a, b) => b.price - a.price);
       case "popular":
@@ -90,7 +90,6 @@ const MainContent = () => {
 
     if (currentPage - 2 < 1) {
       endPage = Math.min(totalPages, endPage + (2 - currentPage));
-
     }
 
     if (currentPage + 2 > totalPages) {
@@ -109,8 +108,15 @@ const MainContent = () => {
       <div className="mb-5">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="relative my-5">
-            <button className="border px-4 py-2 rounded-full flex items-center">
-              <Tally3 className="mr-2" />
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="border px-4 py-2 rounded-full flex items-center hover:cursor-pointer hover:bg-purple-900/20"
+            >
+              <Tally3
+                className={`mr-2 transform transition-transform ${
+                  dropdownOpen ? "rotate-90" : ""
+                }`}
+              />
               {filter === "all"
                 ? "Filter"
                 : filter.charAt(0).toLowerCase() + filter.slice(1)}
@@ -165,19 +171,18 @@ const MainContent = () => {
             Previous
           </button>
           <div className="flex flex-wrap justify-center">
-            {getPaginationNumbers().map(page => (
-                <button 
-                    key={page} 
-                    onClick={() => handlePageChange(page)} 
-                    className={
-                        `px-4 py-2 mx-1 rounded-full  ${page === currentPage 
-                            ? 'bg-purple-600 text-white' 
-                            : 'text-purple-200 hover:cursor-pointer hover:bg-purple-900/20'
-                        }`
-                    }
-                >
-                    {page}
-                </button>
+            {getPaginationNumbers().map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`px-4 py-2 mx-1 rounded-full  ${
+                  page === currentPage
+                    ? "bg-purple-600 text-white"
+                    : "text-purple-200 hover:cursor-pointer hover:bg-purple-900/20"
+                }`}
+              >
+                {page}
+              </button>
             ))}
           </div>
           <button
