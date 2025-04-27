@@ -83,7 +83,7 @@ const Sidebar = () => {
       <section>
         <input
           type="text"
-          className="border-2 rounded px-2 sm:mb-0"
+          className="border-1 rounded px-2 sm:mb-0 outline-0"
           placeholder="Search products..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -92,14 +92,14 @@ const Sidebar = () => {
         <div className="flex justify-center items-center">
           <input
             type="text"
-            className="mr-2 px-5 py-1 mb-3 w-full"
+            className="mr-2 px-5 py-1 mb-3 w-full outline-0"
             placeholder="Min"
             value={minPrice ?? ""}
             onChange={handleMinPriceChange}
           />
           <input
             type="text"
-            className="mr-2 px-5 py-1 mb-3 w-full"
+            className="mr-2 px-5 py-1 mb-3 w-full outline-0"
             placeholder="Max"
             value={maxPrice ?? ""}
             onChange={handleMaxPriceChange}

@@ -1,5 +1,4 @@
-import { AlignCenter } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Author, mockAuthors } from "../public/mock/mockAuthors";
 
 const TopSellers = () => {
@@ -44,7 +43,6 @@ const TopSellers = () => {
   return (
     <div className="bg-purple-900/10 p-5 mx-5 mt-[5rem] border w-[23rem] rounded">
       <h2 className="text-xl font-bold mb-5">Top sellers</h2>
-
       <ul>
         {authors.map((author, index) => (
           <li key={index} className="flex items-center justify-between mb-4">

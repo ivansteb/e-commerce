@@ -12,14 +12,15 @@ function App() {
     <Router>
       <div className='flex bg-gray-900 text-purple-200'>
         <Sidebar />
-        <div className="rounded w-full flex justify-between flex-wrap">
-          <Routes>
-            <Route path="/" element={<MainContent />} />
-            <Route path="/product/:id" element={<ProductPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-
-          <div>
+        <div className="flex flex-col md:flex-row rounded w-full justify-between">
+          <div className='flex-1'>
+            <Routes>
+              <Route path="/" element={<MainContent />} />
+              <Route path="/product/:id" element={<ProductPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <div className='md:ml-4'>
             <TopSellers />
             <PopularBlogs />
           </div>
