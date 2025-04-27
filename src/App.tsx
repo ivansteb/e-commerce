@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import './index.css'
 import MainContent from './components/MainContent'
 import ProductPage from './components/ProductPage'
+import NotFound from './components/NotFoundPage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>
