@@ -89,11 +89,12 @@ const MainContent = () => {
     let endPage = Math.min(totalPages, currentPage + 2);
 
     if (currentPage - 2 < 1) {
-      endPage = Math.min(totalPages, endPage + (2 - currentPage - 1));
+      endPage = Math.min(totalPages, endPage + (2 - currentPage));
+
     }
 
     if (currentPage + 2 > totalPages) {
-      startPage = Math.min(1, startPage - (2 - totalPages - currentPage));
+      startPage = Math.max(1, startPage - (2 - totalPages - currentPage));
     }
 
     for (let page = startPage; page <= endPage; page++) {
