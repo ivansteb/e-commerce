@@ -1,11 +1,11 @@
-export interface PopularBlogs {
+export interface Blogs {
     title: string;
     author: string;
     likes: number;
     comments: number;
 }
 
-export const mockPopularBlogs: PopularBlogs[] = [
+export const mockPopularBlogs: Blogs[] = [
     {
         title: "The Future of Web Development in 2025",
         author: "María Gómez",

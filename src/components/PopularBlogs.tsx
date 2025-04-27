@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
-import { PopularBlogs, mockPopularBlogs } from "../public/mock/mockPopularBlogs"
+import { Blogs, mockPopularBlogs } from "../public/mock/mockPopularBlogs"
 import { MessageCircle, ThumbsUp } from "lucide-react";
 
 const PopularBlogs = () => {
-    const [blogs, setBlogs] = useState<PopularBlogs[]>([])
+    const [blogs, setBlogs] = useState<Blogs[]>([])
 
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
                 // Función para obtener 5 blogs aleatorios del mock
-                const getRandomBlogs = (allBlogs: PopularBlogs[], count: number) => {
+                const getRandomBlogs = (allBlogs: Blogs[], count: number) => {
                     const shuffled = [...allBlogs]
 
                     // Algoritmo de Fisher-Yates para mezclar el array
