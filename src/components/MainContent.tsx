@@ -2,6 +2,7 @@ import { Tally3 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
 import axios from "axios";
+import ProductCard from "./ProductCard";
 
 const MainContent = () => {
   const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =
@@ -26,7 +27,6 @@ const MainContent = () => {
       .get(url)
       .then((response) => {
         setProducts(response.data.products);
-        console.log("Productos: ", response.data.products);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -37,15 +37,42 @@ const MainContent = () => {
     let filteredProducts = products;
 
     if (selectedCategory) {
-        filteredProducts = filteredProducts.filter(
-            (product) => product.category === selectedCategory
-        );
-
-        console.log(`Filtered products by ${selectedCategory}: `, filteredProducts);
+      filteredProducts = filteredProducts.filter(
+        (product) => product.category === selectedCategory
+      );
     }
-  }
 
-  getFilteredProducts();
+    if (minPrice !== undefined) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price >= minPrice
+      );
+    }
+
+    if (maxPrice !== undefined) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price <= maxPrice
+      );
+    }
+
+    if (searchQuery) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    switch (filter) {
+        case "cheap":
+            return filteredProducts.sort((a, b) => b.price - a.price);
+        case "expensive":
+            return filteredProducts.sort((a, b) => b.price - a.price);
+        case "popular":
+            return filteredProducts.sort((a, b) => b.rating - a.rating);
+        default:
+            return filteredProducts;
+    }
+  };
+
+  const filteredProducts = getFilteredProducts();
 
   return (
     <section className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
@@ -85,7 +112,11 @@ const MainContent = () => {
         </div>
 
         <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
-          {/* BookCard */}
+          {filteredProducts.map((product, index) => (
+            <ProductCard
+                key={index}
+            /> 
+          ))}
         </div>
       </div>
     </section>
