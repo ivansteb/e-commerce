@@ -112,10 +112,19 @@ const MainContent = () => {
         </div>
 
         <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
-          {filteredProducts.map((product, index) => (
-            <ProductCard
-                key={index}
-            /> 
+          {filteredProducts.map((product) => (
+            <>
+                <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    image={product.thumbnail}
+                    price={product.price}
+                    rating={product.rating}
+                    description={product.description}
+                /> 
+                {console.log('object', product)}
+            </>
           ))}
         </div>
       </div>
