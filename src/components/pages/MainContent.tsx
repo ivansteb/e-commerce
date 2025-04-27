@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useFilter } from "./FilterContext";
+import { useFilter } from "../FilterContext";
 import axios from "axios";
 import { Tally3 } from "lucide-react";
-import ProductCard from "./ProductCard";
+import ProductCard from "../ProductCard";
 
 const MainContent = () => {
   const { searchQuery, selectedCategory, minPrice, maxPrice, keyword } =

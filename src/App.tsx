@@ -1,9 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import './index.css'
-import MainContent from './components/MainContent'
-import ProductPage from './components/ProductPage'
-import NotFound from './components/NotFoundPage'
+import MainContent from './components/pages/MainContent'
+import ProductPage from './components/pages/ProductPage'
+import NotFound from './components/pages/NotFoundPage'
 import TopSellers from './components/TopSellers'
 import PopularBlogs from './components/PopularBlogs'
 
