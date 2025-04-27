@@ -99,6 +99,7 @@ const MainContent = () => {
     for (let page = startPage; page <= endPage; page++) {
       buttons.push(page);
     }
+
     return buttons;
   };
 
@@ -162,7 +163,22 @@ const MainContent = () => {
           >
             Previous
           </button>
-          <div className="flex flex-wrap justify-center"></div>
+          <div className="flex flex-wrap justify-center">
+            {getPaginationNumbers().map(page => (
+                <button 
+                    key={page} 
+                    onClick={() => handlePageChange(page)} 
+                    className={
+                        `border px-4 py-2 mx-1 rounded-full ${page === currentPage 
+                            ? 'bg-purple-600 text-white' 
+                            : 'text-purple-200'
+                        }`
+                    }
+                >
+                    {page}
+                </button>
+            ))}
+          </div>
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             className="border px-4 py-2 mx-2 rounded-full"
