@@ -126,19 +126,19 @@ const MainContent = () => {
               <div className="absolute bg-white border border-purple-300 rounded mt-2 w-full sm:w-40">
                 <button
                   onClick={() => setFilter("cheap")}
-                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100"
+                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100 hover:cursor-pointer"
                 >
                   Cheap
                 </button>
                 <button
                   onClick={() => setFilter("expensive")}
-                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100"
+                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100 hover:cursor-pointer"
                 >
                   Expensive
                 </button>
                 <button
                   onClick={() => setFilter("popular")}
-                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100"
+                  className="block px-4 py-2 w-full text-left bg-purple-900 hover:bg-purple-600 hover:text-purple-100 hover:cursor-pointer"
                 >
                   Popular
                 </button>
