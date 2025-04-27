@@ -6,7 +6,7 @@ import MainContent from './components/MainContent'
 function App() {
   return (
     <Router>
-      <div className='flex h-screen bg-gray-900 text-purple-200'>
+      <div className='flex bg-gray-900 text-purple-200'>
         <Sidebar />
         <div className="rounded w-full flex justify-between flex-wrap">
           <Routes>

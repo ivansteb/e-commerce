@@ -158,7 +158,7 @@ const MainContent = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
-            className="border px-4 py-2 mx-2 rounded-full"
+            className="px-4 py-2 mx-2 rounded-full hover:cursor-pointer hover:bg-purple-900/20"
             disabled={currentPage === 1}
           >
             Previous
@@ -169,9 +169,9 @@ const MainContent = () => {
                     key={page} 
                     onClick={() => handlePageChange(page)} 
                     className={
-                        `border px-4 py-2 mx-1 rounded-full ${page === currentPage 
+                        `px-4 py-2 mx-1 rounded-full  ${page === currentPage 
                             ? 'bg-purple-600 text-white' 
-                            : 'text-purple-200'
+                            : 'text-purple-200 hover:cursor-pointer hover:bg-purple-900/20'
                         }`
                     }
                 >
@@ -181,7 +181,7 @@ const MainContent = () => {
           </div>
           <button
             onClick={() => handlePageChange(currentPage + 1)}
-            className="border px-4 py-2 mx-2 rounded-full"
+            className="px-4 py-2 mx-2 rounded-full hover:cursor-pointer hover:bg-purple-900/20"
             disabled={currentPage === totalPages}
           >
             Next
