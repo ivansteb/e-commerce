@@ -4,6 +4,8 @@ import './index.css'
 import MainContent from './components/MainContent'
 import ProductPage from './components/ProductPage'
 import NotFound from './components/NotFoundPage'
+import TopSellers from './components/TopSellers'
+import PopularBlogs from './components/PopularBlogs'
 
 function App() {
   return (
@@ -16,6 +18,11 @@ function App() {
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+
+          <div>
+            <TopSellers />
+            <PopularBlogs />
+          </div>
         </div>
       </div>
     </Router>
