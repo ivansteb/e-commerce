@@ -1,6 +1,31 @@
 # E-commerce básico
 
-Hecho con React, TypeScript y Tailwind
+🚀 Tecnologías
+
+- React - Biblioteca para interfaces de usuario
+- TypeScript - Tipado estático para un código más robusto
+- Tailwind CSS - Framework CSS utility-first
+
+✨ Características
+
+- Sistema de búsqueda avanzado
+- Filtrado por palabras clave
+- Rangos de precio (mínimo y máximo)
+- Filtrado por categorías
+- Resultados en tiempo real
+
+👥 Sistema social integrado
+
+- Seguimiento de autores favoritos
+- Feed personalizado basado en seguidos
+- Blogs populares con estadísticas
+
+🏁 Roadmap
+
+- Implementación de carrito de compras
+- Sistema de pagos
+- Modo oscuro
+- Panel de administración
 
 
 
