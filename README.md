@@ -24,10 +24,10 @@
 
 🏁 Roadmap
 
-[ ] Implementación de carrito de compras
-[ ] Sistema de pagos
-[ ] Modo oscuro
-[ ] Panel de administración
+- [ ] Implementación de carrito de compras
+- [ ] Sistema de pagos
+- [ ] Modo oscuro
+- [ ] Panel de administración
 
 
 
